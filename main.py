@@ -16,6 +16,7 @@ def main():
     pygame.init()
     pygame.display.set_caption('Kaboom')
     game_field.create()
+    game_field.print_field()
     soldier.create()
     clock = pygame.time.Clock()
 
@@ -24,7 +25,7 @@ def main():
 
         handle_user()
 
-        screen.draw_screen(game_field.field, soldier.position['y'], soldier.position['x'])
+        screen.draw_screen(game_field.field, soldier.position['row'], soldier.position['col'])
 
         # If the player lost or won, it prints a screen and then closes the game screen
         if game_field.flag_contact(soldier.get_upper_body()):
@@ -52,7 +53,7 @@ def handle_user():
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_RETURN]:
-        screen.draw_mines(game_field.field)
+        screen.draw_mines(game_field.field, soldier.position['row'], soldier.position['col'])
         sleep(1)
     else:
         if keys[pygame.K_DOWN]:
