@@ -13,7 +13,11 @@ def create():
     for i in range(consts.BOARD_ROWS):
         row = []
         for j in range(consts.BOARD_COLS):
-            row.append(consts.EMPTY_SQUARE)
+            if (j >= (consts.BOARD_COLS - consts.FLAG_COLS - 1)
+                    and i >= (consts.BOARD_ROWS - consts.FLAG_ROWS - 1)):
+                row.append(consts.FLAG_SQUARE)
+            else:
+                row.append(consts.EMPTY_SQUARE)
         field.append(row)
     add_mines()
     add_bushes()
@@ -42,7 +46,9 @@ def add_bushes():
     for i in range(consts.MINES_COUNT):
         row = random.randint(0, consts.BOARD_ROWS - 1)
         col = random.randint(0, consts.BOARD_COLS - 1)
-        while (field[row][col] != consts.EMPTY_SQUARE
+        while (field[row][col] == consts.BUSH_SQUARE
+            or field[row][col] == consts.BUSH_N_MINE_SQUARE
+            or field[row][col] == consts.FLAG_SQUARE
                or row < 6 or col < 2):
             row = random.randint(0, consts.BOARD_ROWS - 1)
             col = random.randint(0, consts.BOARD_COLS - 1)
@@ -58,8 +64,7 @@ def flag_contact(coordinates):
     :return: True if at least one of the coordinates int the list touches the flag (boolean)
     """
     for coordinate in coordinates:
-        if (coordinate[0] >= consts.BOARD_ROWS - consts.FLAG_ROWS - 1
-                or coordinate[1] >= consts.BOARD_COLS - consts.FLAG_COLS - 1):
+        if field[coordinate[0]][coordinate[1]] == consts.FLAG_SQUARE:
             return True
     return False
 
