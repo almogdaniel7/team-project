@@ -12,7 +12,7 @@ SOLDIER_BODY_ROWS = 3 # the upper part
 SOLDIER_FEET_ROWS = 1 # the lower part
 
 #to create a flag
-FLAG_ROWS = 3
+FLAG_ROWS = 4
 FLAG_COLS = 4
 
 #to create mines
