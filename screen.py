@@ -5,9 +5,11 @@ from consts import *
 game_display = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 
 
-def draw_screen(field):
+def draw_screen(field, given_row, given_col):
     """
     func that draws the screen and creates a background
+    :param given_col:
+    :param given_row:
     :param field: field is a list of lists of numbers - each representing if something is in the block (used in draw_bushes and draw_mines)
     :return: none
     """
@@ -16,6 +18,7 @@ def draw_screen(field):
     game_display.blit(bg)
     draw_bushes(field)
     draw_flag()
+    draw_soldier(given_row, given_col)
     pygame.display.flip()
 
 
@@ -31,7 +34,7 @@ def draw_bushes(field):
             if field[i][j] == BUSH_SQUARE or field[i][j] == BUSH_N_MINE_SQUARE:
                 bush = pygame.image.load(GRASS)
                 bush = pygame.transform.scale(bush, (BUSH_ROWS*CELL_SIZE, BUSH_COLS*CELL_SIZE))
-                game_display.blit(bush, bush.get_rect(center=(j*CELL_SIZE, i*CELL_SIZE)))
+                game_display.blit(bush, (j*CELL_SIZE, i*CELL_SIZE))
 
 
 
@@ -46,17 +49,17 @@ def draw_mines(field):
             if field[i][j] == MINE_SQUARE or field[i][j] == BUSH_N_MINE_SQUARE:
                 mine = pygame.image.load(MINE)
                 mine = pygame.transform.scale(mine, (MINE_COLS*CELL_SIZE, MINE_ROWS*CELL_SIZE))
-                game_display.blit(mine, mine.get_rect(center=(j*CELL_SIZE, i*CELL_SIZE)))
+                game_display.blit(mine, (j*CELL_SIZE, i*CELL_SIZE))
     pygame.display.flip()
 
 
 
 def draw_flag():
-    flag_row = BOARD_ROWS - FLAG_ROWS + 0.75
-    flag_col = BOARD_COLS - FLAG_COLS + 2.2
+    flag_row = BOARD_ROWS - FLAG_ROWS
+    flag_col = BOARD_COLS - FLAG_COLS
     flag = pygame.image.load(FLAG)
-    flag = pygame.transform.scale(flag, (FLAG_ROWS*CELL_SIZE, FLAG_COLS*CELL_SIZE))
-    game_display.blit(flag, flag.get_rect(center=(flag_col*CELL_SIZE, flag_row*CELL_SIZE)))
+    flag = pygame.transform.scale(flag, (FLAG_COLS*CELL_SIZE, FLAG_ROWS*CELL_SIZE))
+    game_display.blit(flag, (flag_col*CELL_SIZE, flag_row*CELL_SIZE))
 
 
 
@@ -64,5 +67,5 @@ def draw_flag():
 def draw_soldier(given_row, given_col):
     soldier = pygame.image.load(SOLDIER)
     soldier = pygame.transform.scale(soldier, (SOLDIER_ROWS*CELL_SIZE, SOLDIER_COLS*CELL_SIZE))
-    game_display.blit(soldier, soldier.get_rect(center=(given_row*CELL_SIZE, given_col*CELL_SIZE)))
+    game_display.blit(soldier, (given_col*CELL_SIZE, given_row*CELL_SIZE))
 
