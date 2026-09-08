@@ -36,3 +36,17 @@ SNAKE = 'images/snake.png'
 SOLDIER = 'images/soldier.png'
 SOLDIER_NIGHT = 'images/soldier_night.png'
 TELEPORT = 'images/teleport.png'
+# For the game_field grid
+EMPTY_SQUARE = 0
+BUSH_SQUARE = 1
+MINE_SQUARE = 2
+BUSH_N_MINE_SQUARE = 3
+
+STATE_RUNNING = 0
+STATE_LOST = 1
+
+# Movement markers
+MOVE_UP = 0
+MOVE_DOWN = 1
+MOVE_LEFT = 2
+MOVE_RIGHT = 3
