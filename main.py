@@ -16,21 +16,29 @@ def main():
     pygame.init()
     pygame.display.set_caption('Kaboom')
     game_field.create()
+    soldier.create()
+    clock = pygame.time.Clock()
 
     while states['state'] == consts.STATE_RUNNING:
+        pygame.time.delay(50)
+
         handle_user()
 
-        screen.draw_screen(game_field.field)
+        screen.draw_screen(game_field.field, soldier.position['x'], soldier.position['y'])
 
         # If the player lost or won, it prints a screen and then closes the game screen
-        # if game_field.flag_contact(soldier.get_upper_body()):
-        #     states['state'] = consts.STATE_WON
-        #     screen.draw_win_screen()
-        #     sleep(3)
-        # if game_field.mine_contact(soldier.get_feet()):
-        #     states['state'] = consts.STATE_LOST
-        #     screen.draw_lose_screen()
-        #     sleep(3)
+        if game_field.flag_contact(soldier.get_upper_body()):
+            states['state'] = consts.STATE_WON
+            print('won!')
+            screen.screen_win()
+            sleep(3)
+        if game_field.mine_contact(soldier.get_feet()):
+            states['state'] = consts.STATE_LOST
+            print('lose!')
+            screen.screen_lose()
+            sleep(3)
+
+        clock.tick(60)
 
 
 
@@ -55,7 +63,6 @@ def handle_user():
             soldier.move(consts.MOVE_RIGHT)
         if keys[pygame.K_LEFT]:
             soldier.move(consts.MOVE_LEFT)
-    pygame.time.delay(100)
 
 
 if __name__ == '__main__':

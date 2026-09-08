@@ -54,7 +54,7 @@ def add_bushes():
 def flag_contact(coordinates):
     """
     Returns True if at least one of the coordinates int the list touches the flag
-    :param coordinates: coordinates to check for contact with the flag (tuple(int))
+    :param coordinates: coordinates to check for contact with the flag (list(tuple(int)))
     :return: True if at least one of the coordinates int the list touches the flag (boolean)
     """
     for coordinate in coordinates:
@@ -67,7 +67,7 @@ def flag_contact(coordinates):
 def mine_contact(coordinates):
     """
     Returns true if at least one of the coordinates int the list touches a mine
-    :param coordinates: coordinates to check for contact with the mine (tuple(int))
+    :param coordinates: coordinates to check for contact with the mine (list(tuple(int)))
     :return: True if at least one of the coordinates int the list touches a mine (boolean)
     """
     for i in range(consts.BOARD_ROWS):

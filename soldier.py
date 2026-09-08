@@ -18,8 +18,8 @@ def move(direction):
 
 def get_upper_body():
     coordinates = []
-    for row in range(consts.SOLDIER_BODY_ROWS):
-        for col in range(consts.SOLDIER_COLS):
+    for row in range(consts.SOLDIER_BODY_ROWS + 1):
+        for col in range(consts.SOLDIER_COLS + 1):
             coordinates.append((position['x'] + row, position['y'] + col))
     return coordinates
 
