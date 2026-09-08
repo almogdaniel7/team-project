@@ -45,8 +45,10 @@ def draw_mines(field):
         for j in range (BOARD_COLS):
             if field[i][j] == MINE_SQUARE or field[i][j] == BUSH_N_MINE_SQUARE:
                 mine = pygame.image.load(MINE)
-                mine = pygame.transform.scale(mine, (MINE_ROWS*CELL_SIZE, MINE_COLS*CELL_SIZE))
+                mine = pygame.transform.scale(mine, (MINE_COLS*CELL_SIZE, MINE_ROWS*CELL_SIZE))
                 game_display.blit(mine, mine.get_rect(center=(j*CELL_SIZE, i*CELL_SIZE)))
+    pygame.display.flip()
+
 
 
 def draw_flag():
@@ -55,3 +57,12 @@ def draw_flag():
     flag = pygame.image.load(FLAG)
     flag = pygame.transform.scale(flag, (FLAG_ROWS*CELL_SIZE, FLAG_COLS*CELL_SIZE))
     game_display.blit(flag, flag.get_rect(center=(flag_col*CELL_SIZE, flag_row*CELL_SIZE)))
+
+
+
+
+def draw_soldier(given_row, given_col):
+    soldier = pygame.image.load(SOLDIER)
+    soldier = pygame.transform.scale(soldier, (SOLDIER_ROWS*CELL_SIZE, SOLDIER_COLS*CELL_SIZE))
+    game_display.blit(soldier, soldier.get_rect(center=(given_row*CELL_SIZE, given_col*CELL_SIZE)))
+
