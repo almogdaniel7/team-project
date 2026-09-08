@@ -16,7 +16,6 @@ def main():
     pygame.init()
     pygame.display.set_caption('Kaboom')
     game_field.create()
-    game_field.print_field()
     soldier.create()
     clock = pygame.time.Clock()
 
@@ -40,7 +39,6 @@ def main():
             sleep(3)
 
         clock.tick(60)
-
 
 
 def handle_user():
@@ -67,6 +65,4 @@ def handle_user():
 
 
 if __name__ == '__main__':
-    # game_field.create()
-    # game_field.print_field()
     main()
