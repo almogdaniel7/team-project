@@ -15,7 +15,7 @@ def draw_screen(field):
     bg = pygame.transform.scale(bg, (WINDOW_WIDTH, WINDOW_HEIGHT))
     game_display.blit(bg)
     draw_bushes(field)
-    draw_mines(field)
+    # draw_mines(field)
     pygame.display.flip()
 
 
@@ -47,3 +47,4 @@ def draw_mines(field):
                 mine = pygame.image.load(GRASS)
                 mine = pygame.transform.scale(mine, (MINE_ROWS*CELL_SIZE, MINE_COLS*CELL_SIZE))
                 game_display.blit(mine, mine.get_rect(center=(j*CELL_SIZE, i*CELL_SIZE)))
+    pygame.display.flip()

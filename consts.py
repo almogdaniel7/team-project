@@ -30,8 +30,10 @@ BUSH_SQUARE = 1
 MINE_SQUARE = 2
 BUSH_N_MINE_SQUARE = 3
 
+# game states
 STATE_RUNNING = 0
 STATE_LOST = 1
+STATE_WON = 2
 
 # Movement markers
 MOVE_UP = 0
