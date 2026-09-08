@@ -57,5 +57,6 @@ SOLDIER_NIGHT = 'images/soldier_night.png'
 TELEPORT = 'images/teleport.png'
 
 #colors
-gold = (255, 215, 0, 255)
-white = (255, 255, 255)
+GOLD = (255, 215, 0, 255)
+WHITE = (255, 255, 255)
+GREEN =  (0, 255, 0, 255)
