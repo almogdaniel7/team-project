@@ -24,7 +24,7 @@ def main():
 
         handle_user()
 
-        screen.draw_screen(game_field.field, soldier.position['x'], soldier.position['y'])
+        screen.draw_screen(game_field.field, soldier.position['y'], soldier.position['x'])
 
         # If the player lost or won, it prints a screen and then closes the game screen
         if game_field.flag_contact(soldier.get_upper_body()):

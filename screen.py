@@ -55,7 +55,7 @@ def draw_mines(field):
 
 
 def draw_flag():
-    flag_row = BOARD_ROWS - FLAG_ROWS
+    flag_row = BOARD_ROWS - FLAG_ROWS - 0.5
     flag_col = BOARD_COLS - FLAG_COLS
     flag = pygame.image.load(FLAG)
     flag = pygame.transform.scale(flag, (FLAG_COLS*CELL_SIZE, FLAG_ROWS*CELL_SIZE))
@@ -71,25 +71,27 @@ def draw_soldier(given_row, given_col):
 
 
 
-def screen_win(font):
+def screen_win():
     pink_bg = pygame.image.load(PINK_BACKGROUND)
     pink_bg = pygame.transform.scale(pink_bg, (WINDOW_WIDTH, WINDOW_HEIGHT))
     game_display.blit(pink_bg)
     font = pygame.font.Font('Butterpop.ttf', 32)
-    text = font.render("you've lost", True, white, gold)
+    text = font.render("You won!!!", True, white, gold)
     textRect = text.get_rect()
     textRect.center = (WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2)
     game_display.blit(text, textRect)
+    pygame.display.flip()
 
 
 
-def screen_lose(font):
+def screen_lose():
     pink_bg = pygame.image.load(PINK_BACKGROUND)
     pink_bg = pygame.transform.scale(pink_bg, (WINDOW_WIDTH, WINDOW_HEIGHT))
     game_display.blit(pink_bg)
     font = pygame.font.Font('Nightcore Demo.ttf', 32)
-    text = font.render("you've lost", True, white, gold)
+    text = font.render("You lost...", True, white, gold)
     textRect = text.get_rect()
     textRect.center = (WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2)
     game_display.blit(text, textRect)
+    pygame.display.flip()
 
