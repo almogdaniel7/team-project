@@ -42,7 +42,7 @@ MOVE_LEFT = 2
 MOVE_RIGHT = 3
 
 #paths
-BACKGROUND = 'images/bg.jpg'
+BACKGROUND = 'images/bg.png'
 EXPLOSION = 'images/explosion.png'
 FLAG = 'images/flag.png'
 GRASS = 'images/grass.png'

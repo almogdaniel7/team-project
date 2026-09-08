@@ -15,7 +15,7 @@ def draw_screen(field):
     bg = pygame.transform.scale(bg, (WINDOW_WIDTH, WINDOW_HEIGHT))
     game_display.blit(bg)
     draw_bushes(field)
-    # draw_mines(field)
+    draw_flag()
     pygame.display.flip()
 
 
@@ -29,7 +29,7 @@ def draw_bushes(field):
     for i in range (BOARD_ROWS):
         for j in range (BOARD_COLS):
             if field[i][j] == BUSH_SQUARE or field[i][j] == BUSH_N_MINE_SQUARE:
-                bush = pygame.image.load(MINE)
+                bush = pygame.image.load(GRASS)
                 bush = pygame.transform.scale(bush, (BUSH_ROWS*CELL_SIZE, BUSH_COLS*CELL_SIZE))
                 game_display.blit(bush, bush.get_rect(center=(j*CELL_SIZE, i*CELL_SIZE)))
 
@@ -44,7 +44,14 @@ def draw_mines(field):
     for i in range (BOARD_ROWS):
         for j in range (BOARD_COLS):
             if field[i][j] == MINE_SQUARE or field[i][j] == BUSH_N_MINE_SQUARE:
-                mine = pygame.image.load(GRASS)
+                mine = pygame.image.load(MINE)
                 mine = pygame.transform.scale(mine, (MINE_ROWS*CELL_SIZE, MINE_COLS*CELL_SIZE))
                 game_display.blit(mine, mine.get_rect(center=(j*CELL_SIZE, i*CELL_SIZE)))
-    pygame.display.flip()
+
+
+def draw_flag():
+    flag_row = BOARD_ROWS - FLAG_ROWS + 0.75
+    flag_col = BOARD_COLS - FLAG_COLS + 2.2
+    flag = pygame.image.load(FLAG)
+    flag = pygame.transform.scale(flag, (FLAG_ROWS*CELL_SIZE, FLAG_COLS*CELL_SIZE))
+    game_display.blit(flag, flag.get_rect(center=(flag_col*CELL_SIZE, flag_row*CELL_SIZE)))
