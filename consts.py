@@ -43,6 +43,7 @@ MOVE_RIGHT = 3
 
 #paths
 BACKGROUND = 'images/bg.png'
+PINK_BACKGROUND = 'images/pink.jpg'
 EXPLOSION = 'images/explosion.png'
 FLAG = 'images/flag.png'
 GRASS = 'images/grass.png'
@@ -53,3 +54,7 @@ SNAKE = 'images/snake.png'
 SOLDIER = 'images/soldier.png'
 SOLDIER_NIGHT = 'images/soldier_night.png'
 TELEPORT = 'images/teleport.png'
+
+#colors
+gold = (255, 215, 0, 255)
+white = (255, 255, 255)

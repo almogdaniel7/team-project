@@ -56,13 +56,36 @@ def draw_flag():
     flag_col = BOARD_COLS - FLAG_COLS + 2.2
     flag = pygame.image.load(FLAG)
     flag = pygame.transform.scale(flag, (FLAG_ROWS*CELL_SIZE, FLAG_COLS*CELL_SIZE))
-    game_display.blit(flag, flag.get_rect(center=(flag_col*CELL_SIZE, flag_row*CELL_SIZE)))
-
+    game_display.blit(flag, (flag_col*CELL_SIZE, flag_row*CELL_SIZE))
 
 
 
 def draw_soldier(given_row, given_col):
     soldier = pygame.image.load(SOLDIER)
     soldier = pygame.transform.scale(soldier, (SOLDIER_ROWS*CELL_SIZE, SOLDIER_COLS*CELL_SIZE))
-    game_display.blit(soldier, soldier.get_rect(center=(given_row*CELL_SIZE, given_col*CELL_SIZE)))
+    game_display.blit(soldier, (given_row*CELL_SIZE, given_col*CELL_SIZE))
+
+
+
+def screen_win(font):
+    pink_bg = pygame.image.load(PINK_BACKGROUND)
+    pink_bg = pygame.transform.scale(pink_bg, (WINDOW_WIDTH, WINDOW_HEIGHT))
+    game_display.blit(pink_bg)
+    font = pygame.font.Font('Butterpop.ttf', 32)
+    text = font.render("you've lost", True, white, gold)
+    textRect = text.get_rect()
+    textRect.center = (WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2)
+    game_display.blit(text, textRect)
+
+
+
+def screen_lose(font):
+    pink_bg = pygame.image.load(PINK_BACKGROUND)
+    pink_bg = pygame.transform.scale(pink_bg, (WINDOW_WIDTH, WINDOW_HEIGHT))
+    game_display.blit(pink_bg)
+    font = pygame.font.Font('Nightcore Demo.ttf', 32)
+    text = font.render("you've lost", True, white, gold)
+    textRect = text.get_rect()
+    textRect.center = (WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2)
+    game_display.blit(text, textRect)
 
