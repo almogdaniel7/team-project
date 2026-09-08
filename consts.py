@@ -24,18 +24,6 @@ MINE_COLS = 3
 BUSH_ROWS = 2
 BUSH_COLS = 2
 
-#paths
-BACKGROUND = 'images/bg.jpg'
-EXPLOSION = 'images/explosion.png'
-FLAG = 'images/flag.png'
-GRASS = 'images/grass.png'
-GUARD = 'images/guard.png'
-INJURY = 'images/injury.png'
-MINE = 'images/mine.png'
-SNAKE = 'images/snake.png'
-SOLDIER = 'images/soldier.png'
-SOLDIER_NIGHT = 'images/soldier_night.png'
-TELEPORT = 'images/teleport.png'
 # For the game_field grid
 EMPTY_SQUARE = 0
 BUSH_SQUARE = 1
@@ -50,3 +38,16 @@ MOVE_UP = 0
 MOVE_DOWN = 1
 MOVE_LEFT = 2
 MOVE_RIGHT = 3
+
+#paths
+BACKGROUND = 'images/bg.jpg'
+EXPLOSION = 'images/explosion.png'
+FLAG = 'images/flag.png'
+GRASS = 'images/grass.png'
+GUARD = 'images/guard.png'
+INJURY = 'images/injury.png'
+MINE = 'images/mine.png'
+SNAKE = 'images/snake.png'
+SOLDIER = 'images/soldier.png'
+SOLDIER_NIGHT = 'images/soldier_night.png'
+TELEPORT = 'images/teleport.png'
