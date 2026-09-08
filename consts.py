@@ -1,0 +1,21 @@
+#to create a game board
+BOARD_ROWS = 25
+BOARD_COLS = 50
+CELL_SIZE = 20 # pixels per cell
+WINDOW_WIDTH = BOARD_COLS * CELL_SIZE
+WINDOW_HEIGHT = BOARD_ROWS * CELL_SIZE
+
+#to create a soldier
+SOLDIER_ROWS = 4
+SOLDIER_COLS = 2
+SOLDIER_BODY_ROWS = 3 # the upper part
+SOLDIER_FEET_ROWS = 1 # the lower part
+
+#to create a flag
+FLAG_ROWS = 3
+FLAG_COLS = 4
+
+#to create mines
+MINES_COUNT = 20
+MINE_ROWS = 1
+MINE_COLS = 3
