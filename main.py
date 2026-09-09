@@ -77,13 +77,10 @@ def handle_user():
                 time = pygame.time.get_ticks() - key_press_timer[1]
                 # if pressed for more than a second, it is a long press then
                 if time > 1000:
-                    print('long, load ' + event.unicode)
                     coordinates = database.extract_data(int(event.unicode))
-                    print(coordinates)
                     if coordinates:
                         soldier.update_location(coordinates)
                 else:
-                    print('short, save ' + event.unicode)
                     database.write_to_file(game_field.field, [soldier.position['row'], soldier.position['col']], int(event.unicode))
 
     keys = pygame.key.get_pressed()

@@ -89,16 +89,3 @@ def mine_contact(coordinates):
                 return True
     return False
 
-
-def print_field():
-    """
-    Prints the field on the screen
-    TO BE DELETED LATER
-    :return:
-    """
-    for i in range(consts.BOARD_ROWS):
-        for j in range(consts.BOARD_COLS):
-            print(field[i][j], end='\t')
-        print()
-
-

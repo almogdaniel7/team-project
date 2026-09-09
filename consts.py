@@ -17,12 +17,12 @@ FLAG_COLS = 4
 
 #to create mines
 MINES_COUNT = 15
-MINE_ROWS = 2
-MINE_COLS = 4
+MINE_ROWS = 1
+MINE_COLS = 3
 
 #to create bushes
-BUSH_ROWS = 3
-BUSH_COLS = 3
+BUSH_ROWS = 2
+BUSH_COLS = 2
 
 # For the game_field grid
 EMPTY_SQUARE = '0'
