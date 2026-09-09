@@ -75,12 +75,11 @@ def mine_contact(coordinates):
     :param coordinates: coordinates to check for contact with the mine (list(tuple(int)))
     :return: True if at least one of the coordinates int the list touches a mine (boolean)
     """
-    for i in range(consts.BOARD_ROWS):
-        for j in range(consts.BOARD_COLS):
-            if field[i][j] == consts.MINE_SQUARE or field[i][j] == consts.BUSH_N_MINE_SQUARE:
-                for coordinate in coordinates:
-                    if coordinate[0] == i and coordinate[1] == j:
-                        return True
+    for coordinate in coordinates:
+        for i in range(consts.MINE_COLS):
+            if (field[coordinate[0]][coordinate[1] + i] == consts.MINE_SQUARE
+                    or field[coordinate[0]][coordinate[1] + i] == consts.BUSH_N_MINE_SQUARE):
+                return True
     return False
 
 

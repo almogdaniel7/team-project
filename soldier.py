@@ -18,11 +18,11 @@ def move(direction):
     """
     if direction == consts.MOVE_UP and position['row'] > 0:
         position['row'] -= 1
-    elif direction == consts.MOVE_DOWN and position['row'] < consts.BOARD_ROWS - 1 - consts.SOLDIER_ROWS:
+    elif direction == consts.MOVE_DOWN and position['row'] < consts.BOARD_ROWS - consts.SOLDIER_ROWS + 2:
         position['row'] += 1
     elif direction == consts.MOVE_LEFT and  position['col'] > 0:
         position['col'] -= 1
-    elif direction == consts.MOVE_RIGHT and position['col'] < consts.BOARD_COLS - 1 - consts.SOLDIER_COLS:
+    elif direction == consts.MOVE_RIGHT and position['col'] < consts.BOARD_COLS - consts.SOLDIER_COLS + 1:
         position['col'] += 1
 
 def get_upper_body():

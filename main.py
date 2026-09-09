@@ -29,12 +29,25 @@ def main():
         # If the player lost or won, it prints a screen and then closes the game screen
         if game_field.flag_contact(soldier.get_upper_body()):
             states['state'] = consts.STATE_WON
-            print('won!')
+            # Initialize the mixer module for the pop sound
+            # pygame.mixer.init()
+
+            pygame.mixer.music.load(consts.WIN_SOUND)
+            pygame.mixer.music.play()
+
             screen.screen_win()
             sleep(3)
         if game_field.mine_contact(soldier.get_feet()):
             states['state'] = consts.STATE_LOST
-            print('lose!')
+
+            pygame.mixer.music.load(consts.LOSE_SOUND)
+            pygame.mixer.music.play()
+            # Loop meant to wait until sound has finished playing
+            while pygame.mixer.music.get_busy():
+                pass
+            pygame.mixer.music.load(consts.GAME_OVER_SOUND)
+            pygame.mixer.music.play()
+
             screen.screen_lose()
             sleep(3)
 
