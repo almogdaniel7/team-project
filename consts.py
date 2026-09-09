@@ -7,7 +7,7 @@ WINDOW_HEIGHT = BOARD_ROWS * CELL_SIZE
 
 #to create a soldier
 SOLDIER_ROWS = 4
-SOLDIER_COLS = 2
+SOLDIER_COLS = 4
 SOLDIER_BODY_ROWS = 3 # the upper part
 SOLDIER_FEET_ROWS = 1 # the lower part
 
@@ -16,13 +16,13 @@ FLAG_ROWS = 4
 FLAG_COLS = 4
 
 #to create mines
-MINES_COUNT = 20
-MINE_ROWS = 1
-MINE_COLS = 3
+MINES_COUNT = 15
+MINE_ROWS = 2
+MINE_COLS = 4
 
 #to create bushes
-BUSH_ROWS = 2
-BUSH_COLS = 2
+BUSH_ROWS = 3
+BUSH_COLS = 3
 
 # For the game_field grid
 EMPTY_SQUARE = 0
@@ -42,18 +42,18 @@ MOVE_DOWN = 1
 MOVE_LEFT = 2
 MOVE_RIGHT = 3
 
-#paths
-BACKGROUND = 'images/bg.png'
+#images
+BACKGROUND = 'images/bg.jpg'
 PINK_BACKGROUND = 'images/pink.jpg'
 EXPLOSION = 'images/explosion.png'
 FLAG = 'images/flag.png'
-GRASS = 'images/grass.png'
+GRASS = 'images/kebab.png'
 GUARD = 'images/guard.png'
 INJURY = 'images/injury.png'
-MINE = 'images/mine.png'
+MINE = 'images/av.png'
 SNAKE = 'images/snake.png'
-SOLDIER = 'images/soldier.png'
-SOLDIER_NIGHT = 'images/soldier_night.png'
+SOLDIER = 'images/sap.png'
+SOLDIER_NIGHT = 'images/sapsoldier.png'
 TELEPORT = 'images/teleport.png'
 
 #sound effects
