@@ -11,6 +11,7 @@ import game_field
 states = {
     "state": consts.STATE_RUNNING,
 }
+key_press_timer = [0, 0]
 
 def main():
     pygame.init()
@@ -29,8 +30,6 @@ def main():
         # If the player lost or won, it prints a screen and then closes the game screen
         if game_field.flag_contact(soldier.get_upper_body()):
             states['state'] = consts.STATE_WON
-            # Initialize the mixer module for the pop sound
-            # pygame.mixer.init()
 
             pygame.mixer.music.load(consts.WIN_SOUND)
             pygame.mixer.music.play()
@@ -60,6 +59,25 @@ def handle_user():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+
+        if event.type == pygame.KEYDOWN:
+            num = event.unicode # get the unicode value of the key
+            if '1' <= num <= '9': # check if the key is a digit between 1 and 9
+                # saves the time when the key was pressed
+                key_press_timer[0] = num
+                key_press_timer[1] = pygame.time.get_ticks()
+
+        if event.type == pygame.KEYUP: # detects when a key was released
+            if key_press_timer[0] == event.unicode:
+                # finds for how long the key was pressed
+                time = pygame.time.get_ticks() - key_press_timer[1]
+                # if pressed for more than a second, it is long press then
+                if time > 1000:
+                    print('long ' + event.unicode)
+                    # do lonng press
+                else:
+                    print('short ' + event.unicode)
+                    # do short press
 
     keys = pygame.key.get_pressed()
 
