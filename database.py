@@ -6,7 +6,7 @@ import game_field
 from consts import *
 import csv
 import os
-data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+# data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 datas = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 def create_new_file():
     """
@@ -20,39 +20,57 @@ def create_new_file():
         writer.writerows(data)
         """
 
+    data = []
+    for i in range(consts.BOARD_ROWS * 9):
+        row = []
+        for j in range(consts.BOARD_COLS + 1):
+            row.append(0)
+        data.append(row)
+
     if not os.path.exists(DATA):
-        with open('data.csv', 'w', newline='') as csvfile:
+        with open(DATA, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerows(data)
     else:
         pass
 
-def write_to_file(datas, num):
-    i = 0
-    while i <= 9:
-        file = open('data.csv', 'a', newline='')
-        writer = csv.writer(file)
-        writer.writerows(datas)
-        i += 1
+def write_to_file(data, soldier_coordinates, num):
+    file = open('data.csv', 'r')
+    reader = csv.reader(file)
+    file_info = list(reader)
+    index = (num-1) * consts.BOARD_ROWS
 
-# if __name__ == '__main__':
-#     writers = create_new_file()
-#     write_to_file(datas)
+    for i in range(consts.BOARD_ROWS):
+        for j in range(consts.BOARD_COLS):
+            file_info[index + i][j] = data[i][j]
+
+    file_info[index][-1] = soldier_coordinates[0]
+    file_info[index + 1][-1] = soldier_coordinates[1]
+
+    with open(DATA, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerows(file_info)
+
 
 def extract_data(num):
-    num = int(num)
     file = open('data.csv', 'r')
     reader = csv.reader(file)
     data = list(reader)
-    index = num * consts.BOARD_ROWS
-    try:
+    index = (num-1) * consts.BOARD_ROWS
+    is_game = False
+    for i in range(consts.BOARD_ROWS):
+        for j in range(consts.BOARD_COLS):
+            if data[i + index][j] != '0':
+                is_game = True
+                break
+        if is_game:
+            break
+
+    if is_game:
         soldier_coordinates = [data[index][-1], data[index+1][-1]]
-        data = data[index:-1]
-    except IndexError: # If there is no saved game in index, then does nothing
+        print(soldier_coordinates)
+        data = data[index:index + consts.BOARD_ROWS + 1]
+        game_field.change_field(data)
+        return soldier_coordinates
+    else:
         return None
-    game_field.change_field(data)
-    return soldier_coordinates
-
-
-# create_new_file()
-# extract_data()

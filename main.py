@@ -8,6 +8,8 @@ import database
 import screen
 import soldier
 import game_field
+# Rotem Dar 216360271
+# Almog Daniel 217408707
 
 states = {
     "state": consts.STATE_RUNNING,
@@ -73,15 +75,16 @@ def handle_user():
             if key_press_timer[0] == event.unicode:
                 # finds for how long the key was pressed
                 time = pygame.time.get_ticks() - key_press_timer[1]
-                # if pressed for more than a second, it is long press then
+                # if pressed for more than a second, it is a long press then
                 if time > 1000:
-                    print('long ' + event.unicode)
-                    coordinates = database.extract_data(event.unicode)
+                    print('long, load ' + event.unicode)
+                    coordinates = database.extract_data(int(event.unicode))
+                    print(coordinates)
                     if coordinates:
                         soldier.update_location(coordinates)
                 else:
-                    print('short ' + event.unicode)
-                    # do short press
+                    print('short, save ' + event.unicode)
+                    database.write_to_file(game_field.field, [soldier.position['row'], soldier.position['col']], int(event.unicode))
 
     keys = pygame.key.get_pressed()
 

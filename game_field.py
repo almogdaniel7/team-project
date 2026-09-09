@@ -24,7 +24,10 @@ def create():
 
 
 def change_field(new_field):
-    field = new_field
+    for i in range(len(field)):
+        for j in range(len(field[i])):
+            field[i][j] = new_field[i][j]
+    # print_field()
 
 
 def add_mines():
@@ -33,12 +36,12 @@ def add_mines():
     :return:
     """
     for i in range(consts.MINES_COUNT):
-        row = random.randint(0, consts.BOARD_ROWS - 1)
-        col = random.randint(0, consts.BOARD_COLS - 1)
+        row = random.randint(0, consts.BOARD_ROWS - 1 - consts.MINE_COLS)
+        col = random.randint(0, consts.BOARD_COLS - 1 - consts.MINE_ROWS)
         while (field[row][col] != consts.EMPTY_SQUARE
                or row < 6 or col < 2):
-            row = random.randint(0, consts.BOARD_ROWS - 1)
-            col = random.randint(0, consts.BOARD_COLS - 1)
+            row = random.randint(0, consts.BOARD_ROWS - 1 - consts.MINE_COLS)
+            col = random.randint(0, consts.BOARD_COLS - 1 - consts.MINE_ROWS)
         field[row][col] = consts.MINE_SQUARE
 
 
@@ -48,14 +51,14 @@ def add_bushes():
     :return: None
     """
     for i in range(consts.MINES_COUNT):
-        row = random.randint(0, consts.BOARD_ROWS - 1)
-        col = random.randint(0, consts.BOARD_COLS - 1)
+        row = random.randint(0, consts.BOARD_ROWS - 1 - consts.BUSH_COLS)
+        col = random.randint(0, consts.BOARD_COLS - 1 - consts.BUSH_ROWS)
         while (field[row][col] == consts.BUSH_SQUARE
             or field[row][col] == consts.BUSH_N_MINE_SQUARE
             or field[row][col] == consts.FLAG_SQUARE
                or row < 6 or col < 2):
-            row = random.randint(0, consts.BOARD_ROWS - 1)
-            col = random.randint(0, consts.BOARD_COLS - 1)
+            row = random.randint(0, consts.BOARD_ROWS - 1 - consts.BUSH_COLS)
+            col = random.randint(0, consts.BOARD_COLS - 1 - consts.BUSH_ROWS)
         if field[row][col] == consts.MINE_SQUARE:
             field[row][col] = consts.BUSH_N_MINE_SQUARE
         else: field[row][col] = consts.BUSH_SQUARE
