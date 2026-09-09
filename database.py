@@ -35,9 +35,9 @@ def write_to_file(datas, num):
         writer.writerows(datas)
         i += 1
 
-if __name__ == '__main__':
-    writers = create_new_file()
-    write_to_file(datas)
+# if __name__ == '__main__':
+#     writers = create_new_file()
+#     write_to_file(datas)
 
 def extract_data(num):
     num = int(num)
