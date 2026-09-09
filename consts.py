@@ -56,6 +56,7 @@ SOLDIER = 'images/soldier.png'
 SOLDIER_NIGHT = 'images/soldier_night.png'
 TELEPORT = 'images/teleport.png'
 
+#sound effects
 LOSE_SOUND = 'sounds/explosion.mp3'
 WIN_SOUND = 'sounds/success.mp3'
 GAME_OVER_SOUND = 'sounds/game_over.mp3'
@@ -64,3 +65,6 @@ GAME_OVER_SOUND = 'sounds/game_over.mp3'
 GOLD = (255, 215, 0, 255)
 WHITE = (255, 255, 255)
 GREEN =  (0, 255, 0, 255)
+
+#database
+DATA = 'data.csv'
