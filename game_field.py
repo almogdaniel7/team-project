@@ -23,6 +23,10 @@ def create():
     add_bushes()
 
 
+def change_field(new_field):
+    field = new_field
+
+
 def add_mines():
     """
     Function that randomly adds 20 mines around the field

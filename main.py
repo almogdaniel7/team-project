@@ -4,6 +4,7 @@ from time import sleep
 import pygame
 
 import consts
+import database
 import screen
 import soldier
 import game_field
@@ -19,6 +20,7 @@ def main():
     game_field.create()
     soldier.create()
     clock = pygame.time.Clock()
+    database.create_new_file()
 
     while states['state'] == consts.STATE_RUNNING:
         pygame.time.delay(50)
@@ -74,7 +76,9 @@ def handle_user():
                 # if pressed for more than a second, it is long press then
                 if time > 1000:
                     print('long ' + event.unicode)
-                    # do lonng press
+                    coordinates = database.extract_data(event.unicode)
+                    if coordinates:
+                        soldier.update_location(coordinates)
                 else:
                     print('short ' + event.unicode)
                     # do short press

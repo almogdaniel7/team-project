@@ -25,6 +25,12 @@ def move(direction):
     elif direction == consts.MOVE_RIGHT and position['col'] < consts.BOARD_COLS - consts.SOLDIER_COLS + 1:
         position['col'] += 1
 
+
+def update_location(coordinates):
+    position['col'] = coordinates[0]
+    position['row'] = coordinates[1]
+
+
 def get_upper_body():
     """
     Return the indeces of the upper body of the soldier
